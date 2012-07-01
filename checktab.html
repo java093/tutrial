@@ -1,0 +1,171 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>MzTreeView + CheckBox 复选框 + 自定义表格 演示 (MzTreeView v1.2 www.lxasp.com 修改版)</title>
+
+
+
+<script language="javaScript" src="MzTreeView12.js"></script>
+
+<style>
+
+body {font:normal 12px 宋体}
+
+a.MzTreeview /* TreeView 链接的基本样式 */ { cursor: hand; color: #000080; margin-top: 5px; padding: 2 1 0 2; text-decoration: none; }
+
+.MzTreeview a.select /* TreeView 链接被选中时的样式 */ { color: highlighttext; background-color: highlight; }
+
+#kkk input {
+
+vertical-align:middle;
+
+}
+
+.MzTreeViewRow {border:none;width:500px;padding:0px;margin:0px;border-collapse:collapse}
+
+.MzTreeViewCell0 {border-bottom:1px solid #CCCCCC;padding:0px;margin:0px;}
+
+.MzTreeViewCell1 {border-bottom:1px solid #CCCCCC;border-left:1px solid #CCCCCC;width:200px;padding:0px;margin:0px;}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<h3>MzTreeView + CheckBox 复选框 + 自定义表格.</h3>
+
+
+
+
+
+<table class='MzTreeViewRow' style="background:#EEEEEE;border-top:1px solid #CCCCCC;"><tr><th class='MzTreeViewCell0'>树</th><th class='MzTreeViewCell1'>ID</th></tr></table>
+
+
+
+<div id="kkk"></div>
+
+
+
+
+
+	<script language="javascript" type="text/javascript">
+
+	<!--
+
+	var MzTreeViewTH="<table class='MzTreeViewRow'><tr><td class='MzTreeViewCell0'>";
+
+	var MzTreeViewTD="\"</td><td class='MzTreeViewCell1'>\"+ sid +\"</td></tr></table>\"";
+
+	
+
+	window.tree = new MzTreeView("tree");
+
+	/*
+
+	tree.icons["property"] = "property.gif";
+
+	tree.icons["css"] = "collection.gif";
+
+	tree.icons["event"] = "collection.gif";
+
+	tree.icons["book"]  = "book.gif";
+
+	tree.iconsExpand["book"] = "bookopen.gif"; //展开时对应的图片
+
+	*/
+
+	tree.setIconPath("images/"); //可用相对路径
+
+	tree.N["0_SH8900000000"] = "ctrl:sel;checked:1;T:系统管理;"
+
+	tree.N["SH8900000000_SH8901000000"] = "ctrl:sel;checked:1;T:文书模板管理;url:workflow/manage/template.asp"
+
+	tree.N["SH8900000000_SH8902000000"] = "ctrl:sel;checked:0;T:自定义流程管理;url:workflow/manage/Services.ASP"
+
+	tree.N["SH8900000000_SH8903000000"] = "ctrl:sel;checked:1;T:质量考核因素;url:workflow/manage/managezl.asp"
+
+	tree.N["SH8900000000_SH8904000000"] = "ctrl:sel;checked:1;T:节假日管理;url:workflow/manage/freeday.asp"
+
+	tree.N["SH8900000000_SH8905000000"] = "ctrl:sel;checked:1;T:事项管理;url:workflow/itemsystem.asp"
+
+	tree.N["SH8900000000_SH8906000000"] = "ctrl:sel;checked:1;T:用户及权限管理;"
+
+	tree.N["SH8900000000_SH8907000000"] = "ctrl:sel;checked:1;T:组织机构管理;"
+
+	tree.N["SH8906000000_SH8906010000"] = "ctrl:sel;checked:1;T:添加新用户;url:SystemManager/User_add.aspx"
+
+	tree.N["SH8907000000_SH8907010000"] = "ctrl:sel;checked:1;T:添加组织机构;url:SystemManager/Org_add.aspx"
+
+	tree.N["SH8906000000_SH8906020000"] = "ctrl:sel;checked:0;T:用户管理;url:SystemManager/User_man.aspx"
+
+	tree.N["SH8907000000_SH8907020000"] = "ctrl:sel;checked:0;T:组织机构管理;url:SystemManager/Org_man.aspx"
+
+	tree.N["SH8906000000_SH8906030000"] = "ctrl:sel;checked:1;T:添加新角色;url:SystemManager/Role_add.aspx"
+
+	tree.N["SH8906000000_SH8906040000"] = "ctrl:sel;checked:1;T:系统角色管理;url:SystemManager/Role_man.aspx"
+
+
+
+	tree.setURL("#");
+
+	tree.wordLine = false;
+
+	tree.setTarget("main");
+
+	document.getElementById("kkk").innerHTML=tree.toString();
+
+	tree.expandAll();
+
+	
+
+	//alert(document.getElementsByTagName("head")[0].innerHTML);
+
+	//alert(document.getElementById("kkk").innerHTML);
+
+	
+
+	function showsel()
+
+	{
+
+		var es=document.getElementsByName("sel");
+
+		var out="";
+
+		for(var i=0;i<es.length;i++)
+
+		{
+
+			if (es[i].checked) out+=es[i].value+"\n";
+
+		}
+
+		alert(out);
+
+	}
+
+	//-->
+
+	</script>
+
+<p>
+
+<input type="button" onclick='showsel()' value='显示选中' />
+
+</p>
+
+</body>
+
+</html>
+
